@@ -9,7 +9,6 @@ package threads;
  *
  * */
 public class ThreadTimeSlicingExample {
-
   public static void main(String[] args) {
 
     Runnable r = new Runnable() {

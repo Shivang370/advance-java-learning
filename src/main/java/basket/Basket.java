@@ -13,18 +13,15 @@ public class Basket {
   public float getBasketTotal() {
     Iterator<Item> iterator = items.iterator();
     float basketTotal = 0.0f;
-    while(iterator.hasNext()) {
+    while(iterator.hasNext()) { //Right now it is checking a boolean condition ,for(Item item:this.items) can also be used
       Item item = iterator.next();
-      basketTotal = basketTotal + getTotalPrice(item);
+      basketTotal = basketTotal + item.getTotalPrice();
     }
     return basketTotal;
   }
+  //feature envy is a type of code smell : it shows that basket is using the items function & it is not required , so it isnt a good coding practice.
+  // if we have the get total price function over here.
 
-  public float getTotalPrice(Item i) {
-    float price = i.getPrice() + i.getTax();
-    if (i.isOnSale())
-      price = price - i.getSaleDiscount();
-    return price;
-  }
+
 }
 

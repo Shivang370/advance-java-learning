@@ -26,5 +26,11 @@ public class Item {
   public boolean isOnSale() {
     return onSale;
   }
+  public float getTotalPrice() {
+    float price = getPrice() + getTax();
+    if (isOnSale())
+      price = price - getSaleDiscount();
+    return price;
+  }
 
 }

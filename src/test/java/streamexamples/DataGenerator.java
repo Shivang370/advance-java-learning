@@ -5,7 +5,7 @@ import java.util.Set;
 
 import static java.time.LocalDate.of;
 import static java.util.Arrays.asList;
-import static streamexamples.Category.*;
+import static streamexamples.Category.*; //statically imported so directly name can be used
 import static streamexamples.Category.TOYS;
 import static streamexamples.Status.*;
 import static streamexamples.Status.NEW;

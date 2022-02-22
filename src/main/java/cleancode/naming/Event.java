@@ -1,26 +1,30 @@
 package cleancode.naming;
 
 class Event {
-  private final int d;
-  private final Time t;
+  public static final int SATURDAY = 6;
+  public static final int SUNDAY = 0;
+  public static final int START_OF_DAY = 8;
+  public static final int END_OF_DAY = 18;
+  private final int day;
+  private final Time time;
 
-  public Event(int d, Time t) {
-    this.d = d;
-    this.t = t;
+  public Event(int day, Time time) {
+    this.day = day;
+    this.time = time;
   }
   public int getDay() {
-    return d;
+    return day;
   }
 
   public Time getTime() {
-    return t;
+    return time;
   }
 
-  public boolean canApply() {
-    if (this.getDay() == 6 || this.getDay() == 0) {
+  public boolean isDuringWorkingHours() {
+    if (this.getDay() == SATURDAY || this.getDay() == SUNDAY) { // Use of Constants have increase the readability of the code .
       return false;
     } else {
-      return (this.getTime().getHour() >= 8 && this.getTime().getHour() < 18);
+      return (this.getTime().getHour() >= START_OF_DAY && this.getTime().getHour() < END_OF_DAY);
     }
   }
 }
